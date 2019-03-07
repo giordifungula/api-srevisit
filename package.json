@@ -1,0 +1,27 @@
+{
+  "name": "api-srevisit",
+  "version": "1.0.0",
+  "description": "api and serverside",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "nodemon": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giordifungula/api-srevisit.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Giordi Fungula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giordifungula/api-srevisit/issues"
+  },
+  "homepage": "https://github.com/giordifungula/api-srevisit#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
