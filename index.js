@@ -1,12 +1,14 @@
 // console.log(1);
-var words = {
-    "rainbow":5,
-    "unicorn": 3,
-    "doom": -1,
-    "gloom": 2
-};
 
+// importing the file system 
+var fs = require('fs');
+// read data from json
+var data = fs.readFileSync('words.json');
+// Collect Json text and displays it 
+var words = JSON.parse(data);
+console.log(words);
 
+// When you have a json object you need to convert to text file that is readable
 var express = require('express');
 var app = express();
 
@@ -35,16 +37,22 @@ function addWord(req, res){
             msg: 'Score is required Please'
         }
     } else {
-        words[word] = score;
+        // When user adds something display thank you message
         reply = {
-           msg: 'THank you for your word'
-       }
+            word: word,
+            score: score,
+            status: 'success'
+        }
+        // If Number is added to the Directory Add the content to JSON
+        words[word] = score;
+        var data = JSON.stringify(words, null , 2);
+        fs.writeFile('words.json', data, finished);
+
+        function finished(){
+            console.log('all set');  
+        }
     }
 
-    
-    // for(var i = 0;i < num;i++){
-    //     reply += ' I love Flowers ' + data.flower + ' to ';
-    // }
     res.send(reply);
 }
 
